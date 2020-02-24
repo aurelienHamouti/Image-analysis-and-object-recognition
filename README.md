@@ -3,7 +3,7 @@ image analysis and object recognition program for the Geneva cantonal police.
 
 This project is being carried out as part of the final exam of the Geneva School of Management, with a view to obtaining the Bachelor of Science HES-SO title in IT management.
 
-## cautions
+## Cautions
 This application is intended for use in accordance with Swiss law
 ## Requirements
 Python 3,7 with librairies below :
@@ -83,11 +83,11 @@ wrapt==1.11.2
 zipp==0.6.0
 
 ```
-## running 
+## Running 
 In commande line in the directory of the files
 ```
 python3 run.pyw
 ```
 
-## licence
+## Licence
 “The dissertation of the bachelor's work belongs to the HEG which reserves the right to disseminate it in whole or in part." Extract from the modular plan of the bachelor's work (Module 656 2019)
