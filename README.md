@@ -6,7 +6,7 @@ This project is being carried out as part of the final exam of the Geneva School
 ## Cautions
 This application is intended for use in accordance with Swiss law
 ## Requirements
-Python 3,7 with librairies below :
+Python 3,7 OS (Windows 10, Linux Ubuntu, Debian, Mac os) with librairies below :
 ```
 absl-py==0.9.0
 altgraph==0.16.1
