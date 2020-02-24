@@ -1,5 +1,5 @@
 # Image-analysis-and-object-recognition software
-image analysis and object recognition program for the Geneva cantonal police.
+Image analysis and object recognition program for the Geneva cantonal police.
 
 This project is being carried out as part of the final exam of the Geneva School of Management, with a view to obtaining the Bachelor of Science HES-SO title in IT management.
 
