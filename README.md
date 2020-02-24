@@ -95,4 +95,6 @@ python3 run.pyw
 ```
 
 ## Licence
-“The dissertation of the bachelor's work belongs to the HEG which reserves the right to disseminate it in whole or in part." Extract from the modular plan of the bachelor's thesis (Module 656 2019)
+This code et this documentation work belongs to the HEG (Geneva high school of management, University of Applied Sciences and Arts Western Switzerland) which reserves the right to disseminate it in whole or in part.
+
+Extract from the modular plan of the bachelor's thesis (Module 656 2019)
