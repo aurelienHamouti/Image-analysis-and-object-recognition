@@ -6,7 +6,8 @@ This project is being carried out as part of the final exam of the Geneva School
 ## Cautions
 This application is intended for use in accordance with Swiss law
 ## Requirements
-Windows 8 et 10, Ubuntu 18.04, macOS 10.9 Mavericks
+OS : Windows 8 et 10, Ubuntu 18.04, macOS 10.9 Mavericks
+
 Python 3,7 with librairies below :
 ```
 absl-py==0.9.0
