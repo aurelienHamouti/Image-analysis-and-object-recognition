@@ -1,5 +1,5 @@
-# Image-analysis-and-object-recognition
-image analysis and object recognition for the Geneva cantonal police (HES-SO Bachelor thesis of Science in Business Computing)
+# Image-analysis-and-object-recognition software
+image analysis and object recognition program for the Geneva cantonal police (HES-SO Bachelor thesis of Science in Business Computing)
 
 This project is being carried out as part of the final exam of the Geneva School of Management, with a view to obtaining the Bachelor of Science HES-SO title in IT management.
 
