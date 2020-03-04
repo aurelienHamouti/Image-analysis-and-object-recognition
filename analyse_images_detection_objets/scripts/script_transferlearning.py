@@ -7,7 +7,7 @@
 # Date : 14.02.2020 
 # Python 3.7
 # Context : This code is a part of the final exam of the Geneva School of Management, 
-# #with a view to obtaining the title HES-SO Bachelor of Science in Business Computing
+# #with a view to obtaining the Bachelor of Science HES-SO title in IT management.
 # Code convention : PEP 8
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -138,17 +138,23 @@ class TransferLearning:
         logging.info("The model with the name : " + export_path + " is saved")
 
     def run_transfer_learning(self):
-        self.time = time.time()
-        print("The following GPU devices are available: %s" % tf.test.gpu_device_name())
-        logging.info("The following GPU devices are available: %s" % tf.test.gpu_device_name())
-        images_data, image_batch = self._data_importation()
-        classifier = self._base_model_importation()
-        model = self._extractor_layer(images_data, classifier, image_batch)
-        RetrainedModel = self._transfert_learning(images_data, model)
-        self._check_prediction_display(images_data, image_batch, RetrainedModel)
-        self._save_retrained_model(image_batch, RetrainedModel)
-        print("END PROGRAM")
-        logging.info("END PROGRAM")
+        try:
+            self.time = time.time()
+            print("The following GPU devices are available: %s" % tf.test.gpu_device_name())
+            logging.info("The following GPU devices are available: %s" % tf.test.gpu_device_name())
+            images_data, image_batch = self._data_importation()
+            classifier = self._base_model_importation()
+            model = self._extractor_layer(images_data, classifier, image_batch)
+            RetrainedModel = self._transfert_learning(images_data, model)
+            self._check_prediction_display(images_data, image_batch, RetrainedModel)
+            self._save_retrained_model(image_batch, RetrainedModel)
+            print("END PROGRAM")
+            logging.info("END PROGRAM")
+        except:
+            print(sys.exc_info()[1])
+            logging.info(sys.exc_info()[1])
+            print("CRITICAL ERROR !!! : the programm failed")
+            logging.info("CRITICAL ERROR !!! : the programm failed")
 
 if __name__ == "__main__":
     TransferLearning().run_transfer_learning()

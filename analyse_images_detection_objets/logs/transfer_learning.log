@@ -1,0 +1,23 @@
+2020-03-03 23:12:49,231 - INFO - The following GPU devices are available: 
+2020-03-03 23:12:49,759 - INFO - Classes names are : ['Armes_Automatiques' 'Autres' 'Couteaux_Combat' 'Fusil' 'Munitions'
+ 'Pistolet' 'Revolver']
+2020-03-03 23:12:53,694 - INFO -  feature extractor layer : 
+2020-03-03 23:12:53,694 - INFO - (32, 1280)
+2020-03-03 23:12:53,866 - INFO - Begin training of feature extractor layer (Transfer learning)
+2020-03-03 23:43:19,900 - INFO - End training of feature_extractor_layer
+2020-03-03 23:43:19,900 - INFO - START of checked prediction
+2020-03-03 23:43:19,900 - INFO - Potential classes names : ['Armes_Automatiques' 'Autres' 'Couteaux_Combat' 'Fusil' 'Munitions'
+ 'Pistolet' 'Revolver']
+2020-03-03 23:43:21,504 - INFO - Classes predicted are : ['Autres' 'Autres' 'Autres' 'Autres' 'Couteaux_Combat' 'Autres' 'Autres'
+ 'Autres' 'Autres' 'Autres' 'Autres' 'Autres' 'Autres' 'Revolver'
+ 'Revolver' 'Autres' 'Pistolet' 'Couteaux_Combat' 'Autres' 'Fusil'
+ 'Autres' 'Autres' 'Autres' 'Autres' 'Armes_Automatiques' 'Autres'
+ 'Pistolet' 'Couteaux_Combat' 'Autres' 'Fusil' 'Armes_Automatiques'
+ 'Autres']
+2020-03-03 23:43:24,094 - WARNING - From C:\Users\aurel\AppData\Roaming\Python\Python37\site-packages\tensorflow_core\python\ops\resource_variable_ops.py:1781: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+2020-03-03 23:43:25,303 - INFO - Assets written to: ..\models\retrained_models\saved_models\\1583273569\assets
+2020-03-03 23:43:30,744 - INFO - Verification : if result is 0 the model saved is equal to the model fit0.0
+2020-03-03 23:43:30,744 - INFO - The model with the name : ..\models\retrained_models\saved_models\\1583273569 is saved
+2020-03-03 23:43:30,744 - INFO - END PROGRAM

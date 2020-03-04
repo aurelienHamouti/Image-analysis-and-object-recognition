@@ -78,6 +78,7 @@ class LoadDataThread(QtCore.QThread):
     def run(self):
         fd = QtWidgets.QFileDialog()
         urls = fd.getOpenFileUrls(parent=None, caption="")[0]
+        nb_files = 0
         for url in urls:
             from urllib.parse import urlparse
             a = urlparse(url.url())
@@ -88,6 +89,7 @@ class LoadDataThread(QtCore.QThread):
                 shutil.copy(fileOriginePath, os.path.join(self._PATH_DEPOT, fileName))
                 print("image " + fileOriginePath + " is copied to folder " + self._PATH_DEPOT + " to be prepared for analyzed")
                 logging.info("image " + fileOriginePath + " is copied to folder " + self._PATH_DEPOT + " to be prepared for analyzed")
+                nb_files += 1
             except:
                 print("ERROR : The " + fileName +" has not be copied in the folder " + self._PATH_DEPOT + " a renaming will be attemped")
                 logging.info("ERROR : The " + fileName +" has not be copied in the folder " + self._PATH_DEPOT + " a renaming will be attemped")
@@ -97,10 +99,11 @@ class LoadDataThread(QtCore.QThread):
                     shutil.copy(fileOriginePathCorrected, os.path.join(self._PATH_DEPOT, fileNameCorrected))
                     print("after renaming correction, the image " + fileOriginePathCorrected + " is copied to folder " + self._PATH_DEPOT + " to be prepared for analyzed")
                     logging.info("after renaming correction, the image " + fileOriginePathCorrected + " is copied to folder " + self._PATH_DEPOT + " to be prepared for analyzed")
+                    nb_files += 1
                 except:
                     print("ERROR... : The " + fileNameCorrected +" despite a renaming file name, has not be copied in the folder " + self._PATH_DEPOT)
                     logging.info("ERROR... : The " + fileNameCorrected +" despite a renaming file name, has not be copied in the folder " + self._PATH_DEPOT)
-        self.signal.emit(str(len(urls)))
+        self.signal.emit(nb_files)
 
 class UiMainWindow(object):
     def setup_ui(self, MainWindow):
@@ -257,8 +260,8 @@ class UiMainWindow(object):
         self.Load_data.start()
         self.Load_data.signal.connect(self._update_data_plain_text)  
 
-    def _update_data_plain_text(self, nb_urls):
-        self.pl_data_display.setPlainText(nb_urls + " images ont été chargé dans le dossier de dépot")
+    def _update_data_plain_text(self, nb_files):
+        self.pl_data_display.setPlainText(str(nb_files) + " images ont été chargé dans le dossier de dépot")
 
     def _result_explorer(self):
         subprocess.Popen(r'explorer /select,"'+ self._PATH_RESULT +'"')

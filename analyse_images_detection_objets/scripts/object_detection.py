@@ -4,7 +4,7 @@
 # Date : 14.02.2020 
 # Python 3.7
 # Context : This code is a part of the final exam of the Geneva School of Management, 
-# #with a view to obtaining the title HES-SO Bachelor of Science in Business Computing
+# #with a view to obtaining the Bachelor of Science HES-SO title in IT management.
 # Code convention : PEP 8
 # pip install tf-nightly-gpu-2.0-preview
 import tensorflow as tf
@@ -162,13 +162,13 @@ class Detection:
                 Image.MAX_IMAGE_PIXELS = self._PIXEL_LIMIT
                 im = Image.open(os.path.join(self._PATH_DEPOT, file_name))
                 width, height = im.size
-                imagesize = width*height
+                ImageSize = width*height
                 im.close()
-                volumefile = os.path.getsize(os.path.join(self._PATH_DEPOT, file_name))
+                volumeFile = os.path.getsize(os.path.join(self._PATH_DEPOT, file_name))
                 lst_files_detection = os.listdir(self._PATH_FOLDER_DETECTION)
-                if((volumefile>self._VOLUME_FILE_LIMIT) or (imagesize>self._PIXEL_LIMIT)): 
-                    print("ERROR ! : the file " + file_name + " with file volume : " + str(volumefile) + " ans size " + str(imagesize) + " pixels is too big ! This file has been moved to exceptions folder")
-                    logging.info("ERROR ! : the file " + file_name + " with file volume : " + str(volumefile) + " ans size " + str(imagesize) + " pixels is too big ! This file has been moved to exceptions folder")
+                if((volumeFile>self._VOLUME_FILE_LIMIT) or (ImageSize>self._PIXEL_LIMIT)): 
+                    print("ERROR ! : the file " + file_name + " with file volume : " + str(volumeFile) + " ans size " + str(ImageSize) + " pixels is too big ! This file has been moved to exceptions folder")
+                    logging.info("ERROR ! : the file " + file_name + " with file volume : " + str(volumeFile) + " ans size " + str(ImageSize) + " pixels is too big ! This file has been moved to exceptions folder")
                     shutil.move(os.path.join(self._PATH_DEPOT, file_name), os.path.join(self._PATH_ERROR, file_name))
                 elif(len(lst_files_detection)>0):
                     for nameFile in lst_files_detection:
