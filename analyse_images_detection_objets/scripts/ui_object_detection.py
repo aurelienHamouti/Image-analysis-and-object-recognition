@@ -52,17 +52,20 @@ class ProgressBarThread(QtCore.QThread):
     def run(self):
         nb_file_before_treatement = len(os.listdir(self._PATH_DEPOT))
         if(nb_file_before_treatement==0):
-            self.signal.emit((-1, nb_file_before_treatement))#folder empty
+            self.signal.emit(-1)#folder empty
         else:
-            self.signal.emit((0.01, 1))
+            self.signal.emit(1)
         nb_files = nb_file_before_treatement
         while(nb_files>0):
             nb_files = len(os.listdir(self._PATH_DEPOT))
-            if((not nb_file_before_treatement==0) and (not nb_files==0)):
-                self.signal.emit( ((1-nb_files/nb_file_before_treatement)*100, nb_file_before_treatement))
+            if((not nb_file_before_treatement==0) and (not nb_files==0) and (not nb_files==nb_file_before_treatement)):
+                self.signal.emit((1-nb_files/nb_file_before_treatement)*100)
+                time.sleep(1)
+            elif(nb_files==nb_file_before_treatement):
+                self.signal.emit(0)
                 time.sleep(1)
             else: 
-                self.signal.emit((100, nb_file_before_treatement))
+                self.signal.emit(100)
                 break
 
 class LoadDataThread(QtCore.QThread):
@@ -219,11 +222,11 @@ class UiMainWindow(object):
             self.analyse.start()
             self.analyse.signal.connect(self._display_results)
         
-    def _update_progressbar(self, progressData):#progressData[0] = pourcent progression, progressData[1] = nb files
-        if(progressData[0]==-1):
+    def _update_progressbar(self, progress_data_value):
+        if(progress_data_value==-1):
             self.pl_data_display.setPlainText("Aucune image à traiter ! Veuillez déposer de nouvelles images avant de commencer l'analyse")
         else:
-            self.progressBar_data_analyse.setProperty("value", progressData[0])
+            self.progressBar_data_analyse.setProperty("value", progress_data_value)
 
     def _display_results(self, results):#results[0] = objets détectés,  results[1] = time spent, results[2] = nb images processed, results[3] = is data
         self._in_progress_analyse = None
